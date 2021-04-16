@@ -35,8 +35,12 @@ Route::get('/users/{id}', function($id){
     return 'This is a user' . $id;
 });
 
-//Auth::routes();
+Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
+//Route::get('/edit', 'App\Http\Controllers\PostsController@update');
 Route::resource('posts', App\Http\Controllers\PostsController::class);
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
