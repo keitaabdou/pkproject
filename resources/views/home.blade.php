@@ -16,6 +16,24 @@
 
                     <a href="/posts/create" class="btn btn-primary">Create Post</a>
                     <h3>Your blog Posts</h3>
+                    @if(count($posts) > 0)
+                    <table class="table  table-striped">
+                        <tr>
+                            <th>Title</th>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                        @foreach ($posts as $post)
+                        <tr>
+                            <th>{{$post->title}}</th>
+                            <th><a href="/posts/{{$post->id}}/edit" class="btn btn-default">Edit</a></th>
+                            <th></th>
+                        </tr>
+                        @endforeach
+                    </table>
+                    @else
+                    <p>You have No posts.</p>
+                    @endif
                 </div>
             </div>
         </div>
